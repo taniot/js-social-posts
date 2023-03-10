@@ -77,7 +77,9 @@ const posts = [
 
 function renderPost(elementHTML, postElement) {
 
+    //destrutturazione elemento post
     const { author, created, content, media, likes, id } = postElement;
+    //esempio di destrutturazione proprietà author
     const { name: nameAuthor } = author;
 
     //author name
@@ -96,13 +98,13 @@ function renderPost(elementHTML, postElement) {
 }
 
 
-//Realizzare la lista dei post
+//Realizzare la lista dei post - idee e ipotesi
 //1. creo un ciclo che attraversa la lista dei post
 //2. per ogni post, creo (????) la struttura del post
-//2a 6 - uso createElement per definire ogni porzione del mio template
-//2b 7 - uso template literal e innerHTML per creare la struttura del template
-//2c 9 - clono un template html per creare la struttura del template (scelta a furor di popolo)
-//2d 10 - lasciamo fare a un framework il lavoro sporco
+//2a  - uso createElement per definire ogni porzione del mio template
+//2b  - uso template literal e innerHTML per creare la struttura del template
+//2c  - clono un template html per creare la struttura del template (scelta a furor di popolo)
+//2d  - lasciamo fare a un framework il lavoro sporco
 
 /**************
  * Render dei post
