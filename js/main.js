@@ -23,7 +23,7 @@ const posts = [
             age: 39,
             nPosts: 150
         },
-        created: '3-10-2023',
+        created: randomDate(new Date(2023, 0, 1), new Date()),
         content: 'Lorem ipsum',
         media: 'https://unsplash.it/600/300?image=14',
         likes: 1
@@ -36,7 +36,7 @@ const posts = [
             age: 39,
             nPosts: 150
         },
-        created: '03-10-2023',
+        created: randomDate(new Date(2023, 0, 1), new Date()),
         content: 'Lorem ipsum',
         media: 'https://unsplash.it/600/300?image=40',
         likes: 80
@@ -49,7 +49,7 @@ const posts = [
             age: 39,
             nPosts: 150
         },
-        created: '03-10-2023',
+        created: randomDate(new Date(2023, 0, 1), new Date()),
         content: 'Lorem ipsum',
         media: 'https://unsplash.it/600/300?image=21',
         likes: 80
@@ -62,15 +62,13 @@ const posts = [
             age: 39,
             nPosts: 150,
         },
-        created: '03-10-2023',
+        created: randomDate(new Date(2023, 0, 1), new Date()),
         content: 'Lorem ipsum',
         media: 'https://unsplash.it/600/300?image=30',
         likes: 80
     }
 ];
 let likedPosts = [];
-
-
 
 /************
  * Functions
@@ -132,12 +130,15 @@ function renderPost(elementHTML, postElement) {
 
 // Con questa funzione convertiamo una data in qualsiasi formato in una data italiana
 function convertToIt(created) {
-    const dates = created.split('-');
-    console.log('dates', dates);
-    const giorno = dates[1].padStart(2, '0');
-    const mese = dates[0].padStart(2, '0');
-    const anno = dates[2];
-    return `${giorno}-${mese}-${anno}`;
+    const day = String(created.getDate()).padStart(2, '0');
+    const month = String(created.getMonth() + 1).padStart(2, '0');
+    const year = String(created.getFullYear());
+    return `${day}-${month}-${year}`;
+}
+
+// Funzione che genera una data random tra due date
+function randomDate(start, end) {
+  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 }
 
 //Realizzare la lista dei post - idee e ipotesi
